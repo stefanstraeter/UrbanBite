@@ -10,6 +10,9 @@
 
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
@@ -19,7 +22,7 @@
   </head>
   <body>
     <header>
-      <nav class="max-width navbar" aria-label="navigation">
+      <nav class="navbar" aria-label="navigation">
         <a href="#" class="navbar-logo">
           <img src="/assets/img/UrbanEats.png" alt="UrbanEats Logo" />
         </a>
@@ -50,14 +53,36 @@
           </li>
         </ul>
         <button class="navbar-cart__button" aria-label="Open cart">
-          <i class="fa fa-shopping-cart"></i>
+          <i class="fa-solid fa-basket-shopping"></i>
           <span>Cart</span>
         </button>
       </nav>
     </header>
-    <main>
-      <section></section>
-      <aside></aside>
+    <main class="main-wrapper">
+      <section class="restaurant">
+        <div class="restaurant-header"></div>
+        <div class="restaurant-info content-limit">
+          <h1 class="restaurant-name">Tokyo Drift Kitchen</h1>
+          <p class="restaurant-subtitle mb-xs">Japanese Flavors on the Go</p>
+          <div class="restaurant-meta">
+            <div class="restaurant-rating">
+              <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star icon-star"></i>
+              <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star-half-stroke icon-star"></i> <span>4.8 (258)</span>
+            </div>
+            <div class="restaurant-details">
+              <div class="restaurant-cart"><i class="fa fa-shopping-cart"></i> <span>Min. €18,00</span></div>
+              <div class="restaurant-delivery"><i class="fa-solid fa-bicycle"></i> <span>€4,90</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="order-sidebar">
+        <div class="order-sidebar__info">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <h2>Fill your basket</h2>
+          <span>Your basket is empty</span>
+        </div>
+      </section>
     </main>
     <footer></footer>
   </body>
