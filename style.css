@@ -2,7 +2,7 @@
 :root {
   /* Colors */
   --White: #ffffff;
-  --Cream: #eee0d8;
+  --Cream: #f6e6dc;
   --Slate-200: #8c8c8c;
   --Slate-500: #212427;
   --Red: #cb102c;
@@ -23,6 +23,17 @@
   /* Font Style */
   --font-style-normal: normal;
   --font-style-italic: italic;
+
+  /* Spacing */
+  --space-2xs: 0.4rem;
+  --space-xs: 0.8rem;
+  --space-sm: 1.2rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.4rem;
+  --space-xl: 3.2rem;
+  --space-2xl: 4.8rem;
+  --space-3xl: 6.4rem;
+  --space-4xl: 9.6rem;
 }
 
 /* === Base  === */
@@ -40,70 +51,12 @@ body {
   font-style: var(--font-style-normal);
 }
 
-/* === Layout === */
-header {
-  box-shadow: 0px 8px 24px rgb(140, 140, 140, 0.3);
-  padding: 0 1.5rem;
-}
-
-/* === Navbar === */
-.navbar-logo {
-  width: 100px;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar-links {
-  display: flex;
-  flex-direction: row;
-  gap: 7rem;
-  justify-content: flex-end;
-}
-
-.navbar-links > li > a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  font-family: var(--font-body);
-  font-weight: var(--font-weight-400);
-  font-size: 1.6rem;
-  color: var(--Slate-500);
-  transition: color 0.3s, transform 0.3s;
-}
-
-.navbar-links > li > a:hover {
-  color: var(--Red);
-  transform: translateY(-3px);
-}
-
-.navbar-links > li > a:hover i {
-  transform: scale(1.2);
-}
-
-.navbar-cart__button {
-  background: var(--Red);
-  color: var(--White);
-  border-radius: 2rem;
-  padding: 1rem 4rem;
-  font-size: 1.6rem;
-  transition: background-color 300ms ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.navbar-cart__button:hover {
-  background: var(--Slate-500);
-  color: var(--Cream);
-}
-
 /* === Utilities === */
-.max-width {
-  max-width: 144rem;
+.content-limit {
+  max-width: 120rem;
   margin: 0 auto;
+}
+
+.mb-xs {
+  margin-bottom: var(--space-xs);
 }
