@@ -1,4 +1,4 @@
-/* --- Cart --- */
+/* --- Cart Container--- */
 .floating-cart {
   position: fixed;
   bottom: 0;
@@ -20,6 +20,28 @@
   opacity: 1;
 }
 
+@media (max-width: 920px) {
+  .floating-cart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    border-radius: 0;
+  }
+
+  .floating-cart.active {
+    display: flex;
+  }
+}
+
+/* --- Cart Content--- */
 .floating-cart__content {
   padding: var(--space-xl);
 }
@@ -123,25 +145,6 @@
 }
 
 @media (max-width: 920px) {
-  .floating-cart {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    border-radius: 0;
-  }
-
-  .floating-cart.active {
-    display: flex;
-  }
-
   .floating-cart__content {
     width: 90%;
     max-height: 85vh;
@@ -165,5 +168,29 @@
 
   .order-switch {
     width: 100%;
+  }
+}
+
+/* --- Cart Count Badge --- */
+.cart-count {
+  position: absolute;
+  top: -0.7rem;
+  right: +1.8rem;
+  background-color: var(--Orange);
+  color: var(--Slate-500);
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 920px) {
+  .cart-count {
+    top: -0.7rem;
+    right: calc(50% - 4.8rem);
   }
 }
