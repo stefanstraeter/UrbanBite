@@ -1,23 +1,26 @@
 /* === Header === */
 header {
+  position: sticky;
+  top: 0;
+  background-color: var(--Cream);
+  z-index: 999;
   box-shadow: 0px 8px 24px rgb(140, 140, 140, 0.3);
-  padding: 0 1.5rem;
 }
 
-.main-wrapper {
-  display: flex;
+/* === Restaurant Overview === */
+.restaurant-wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  margin-top: var(--space-2xl);
+  padding: 0 var(--space-md);
 }
 
 .restaurant {
   flex-grow: 1;
 }
 
-.restaurant-info {
-  padding: 5rem;
-}
-
-.restaurant-meta,
-.restaurant-details {
+.dishes-content {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
