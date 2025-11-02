@@ -15,10 +15,6 @@ header {
   padding: 0 var(--space-md);
 }
 
-.restaurant {
-  flex-grow: 1;
-}
-
 .dishes-content {
   display: flex;
   flex-direction: column;
