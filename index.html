@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
-    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/cart.css" />
     <link rel="stylesheet" href="./styles/components.css" />
     <link rel="stylesheet" href="./styles/layout.css" />
     <link rel="stylesheet" href="./style.css" />
@@ -18,71 +18,108 @@
 
     <script src="./scripts/db.js"></script>
     <script src="./scripts/template.js"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <header>
-      <nav class="navbar" aria-label="navigation">
-        <a href="#" class="navbar-logo">
-          <img src="/assets/img/UrbanEats.png" alt="UrbanEats Logo" />
+      <nav class="navbar-header max-width" aria-label="main navigation">
+        <a href="#" class="navbar-header__logo">
+          <img src="./assets/img/UrbanEats.png" alt="UrbanEats Logo" />
         </a>
-        <ul class="navbar-links">
+        <button class="navbar-header__toggle" aria-label="Menu öffnen/schließen">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="navbar-header__links">
           <li>
             <a href="#">
-              <i class="fa fa-home"></i>
-              <span>Home</span>
+              <span>Discover</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa fa-utensils"></i>
-              <span>Restaurants</span>
+              <span>My Orders</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-solid fa-user"></i>
-              <span>Sign In</span>
+              <span>Say hello</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="fa-solid fa-circle-info"></i>
-              <span>Need help?</span>
+              <span>Partner With Us</span>
             </a>
           </li>
         </ul>
-        <button class="navbar-cart__button" aria-label="Open cart">
-          <i class="fa-solid fa-basket-shopping"></i>
+        <button id="cartToggleButton" class="navbar-header__cart-button" aria-label="Open close cart">
+          <i class="fa-solid fa-cart-arrow-down"></i>
           <span>Cart</span>
         </button>
       </nav>
     </header>
-    <main class="main-wrapper">
+    <main>
       <section class="restaurant">
         <div class="restaurant-header"></div>
-        <div class="restaurant-info content-limit">
-          <h1 class="restaurant-name">Tokyo Drift Kitchen</h1>
-          <p class="restaurant-subtitle mb-xs">Japanese Flavors on the Go</p>
-          <div class="restaurant-meta">
-            <div class="restaurant-rating">
-              <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star icon-star"></i>
-              <i class="fa-solid fa-star icon-star"></i> <i class="fa-solid fa-star-half-stroke icon-star"></i> <span>4.8 (258)</span>
-            </div>
-            <div class="restaurant-details">
-              <div class="restaurant-cart"><i class="fa fa-shopping-cart"></i> <span>Min. €18,00</span></div>
-              <div class="restaurant-delivery"><i class="fa-solid fa-bicycle"></i> <span>€4,90</span></div>
+        <div class="restaurant-wrapper">
+          <div class="restaurant-info">
+            <h1 class="restaurant-name">Tokyo Drift Kitchen</h1>
+            <p class="restaurant-subtitle mb-xs">Japanese Flavors on the Go</p>
+            <div class="restaurant-meta mb-xs">
+              <div class="restaurant-rating">
+                <i class="fa-solid fa-star restaurant-rating__icon"></i> <i class="fa-solid fa-star restaurant-rating__icon"></i>
+                <i class="fa-solid fa-star restaurant-rating__icon"></i> <i class="fa-solid fa-star restaurant-rating__icon"></i>
+                <i class="fa-solid fa-star-half-stroke restaurant-rating__icon"></i> <span>4.8 (258)</span>
+              </div>
+              <div class="restaurant-details">
+                <div class="restaurant-cart"><i class="fa fa-shopping-cart"></i> <span>Min. €18,00</span></div>
+                <div class="restaurant-delivery"><i class="fa-solid fa-bicycle"></i> <span>€4,90</span></div>
+              </div>
             </div>
           </div>
+          <nav class="restaurant-nav">
+            <ul>
+              <li>
+                <a href="#bentoboxes">Bento Boxes</a>
+              </li>
+              <li>
+                <a href="#noodlesandbowls">Noodles & Bowls</a>
+              </li>
+              <li>
+                <a href="#sushi">Sushi</a>
+              </li>
+              <li>
+                <a href="#drinks">Drinks</a>
+              </li>
+            </ul>
+          </nav>
+          <div id="dishesContent" class="dishes-content"></div>
         </div>
       </section>
-      <section class="order-sidebar">
-        <div class="order-sidebar__info">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <h2>Fill your basket</h2>
-          <span>Your basket is empty</span>
+      <aside id="floatingCart" class="floating-cart">
+        <div class="floating-cart__content">
+          <h2>Cart</h2>
+          <div class="order-switch">
+            <input type="checkbox" id="order-toggle" class="order-switch__checkbox" />
+            <label for="order-toggle" class="order-switch__label">
+              <div class="order-switch__option order-switch__option--delivery">
+                <i class="fa-solid fa-bicycle"></i>
+                <div class="order-switch__text">
+                  <span class="order-switch__method">Delivery</span>
+                  <span class="order-switch__time">40-60 min</span>
+                </div>
+              </div>
+              <div class="order-switch__option order-switch__option--pickup">
+                <div class="order-switch__text">
+                  <span class="order-switch__method">Pick Up</span>
+                </div>
+                <i class="fa-solid fa-person-walking"></i>
+              </div>
+              <div class="order-switch__slider"></div>
+            </label>
+          </div>
+          <div class="cart-panel__info"></div>
         </div>
-      </section>
+      </aside>
     </main>
     <footer></footer>
   </body>
