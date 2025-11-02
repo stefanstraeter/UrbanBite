@@ -37,6 +37,7 @@ function addDishToCart(itemId) {
   }
 
   renderCart();
+  saveToLocalStorage();
 }
 
 
@@ -90,7 +91,22 @@ burgerButtonToggle.addEventListener('click', () => {
 });
 
 
+function saveToLocalStorage() {
+  localStorage.setItem("myData", JSON.stringify(cart));
+}
+
+function getFromLocalStorage() {
+  let stored = JSON.parse(localStorage.getItem("myData"));
+
+  if (stored !== null) {
+    cart = stored;
+
+  }
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
+  getFromLocalStorage(cart);
   renderAllDishes();
   registerAddToCartButtons();
   renderCart();
