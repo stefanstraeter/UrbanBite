@@ -2,10 +2,13 @@
 :root {
   /* Colors */
   --White: #ffffff;
-  --Cream: #f6e6dc;
-  --Slate-200: #8c8c8c;
-  --Slate-500: #212427;
-  --Red: #cb102c;
+  --Cream: #f9eee2;
+  --Cream-200: #ffffff;
+  --Slate-100: #f4f4f4;
+  --Slate-200: #d1d1d1;
+  --Slate-300: #b7b7b7;
+  --Slate-500: #2e3136;
+  --Red: #dc5820;
 
   /*Typography */
   --font-body: "Figtree", sans-serif;
@@ -34,6 +37,11 @@
   --space-2xl: 4.8rem;
   --space-3xl: 6.4rem;
   --space-4xl: 9.6rem;
+
+  /* Utilities */
+  --max-content-width: 192rem;
+  --cart-offset-from-content: 1.6rem;
+  --min-viewport-margin: 1.6rem;
 }
 
 /* === Base  === */
@@ -52,11 +60,14 @@ body {
 }
 
 /* === Utilities === */
-.content-limit {
-  max-width: 120rem;
-  margin: 0 auto;
+.max-width {
+  max-width: 192rem;
 }
 
 .mb-xs {
   margin-bottom: var(--space-xs);
+}
+
+.ml-xs {
+  margin-left: var(--space-2xs);
 }
