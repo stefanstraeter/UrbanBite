@@ -37,6 +37,7 @@ function addDishToCart(itemId) {
   }
 
   renderCart();
+  updateCartCount();
   saveToLocalStorage();
 }
 
@@ -67,6 +68,15 @@ function renderCart() {
 
   cartContainer.innerHTML = cartSummaryTemplate(itemsHtml, total);
 }
+
+function updateCartCount() {
+  const cartCount = document.querySelector(".cart-count");
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  cartCount.textContent = totalItems;
+  cartCount.style.display = totalItems > 0 ? "flex" : "none";
+}
+
 
 
 cartToggleButton.addEventListener("click", () => {
@@ -110,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAllDishes();
   registerAddToCartButtons();
   renderCart();
+  updateCartCount();
 })
 
 
