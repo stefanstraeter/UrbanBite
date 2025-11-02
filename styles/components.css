@@ -3,12 +3,17 @@
   width: 8rem;
 }
 
+.navbar-header__logo img {
+  max-width: 140%;
+  height: auto;
+}
+
 .navbar-header {
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1.6rem;
+  padding: 1.6rem;
 }
 
 .navbar-header__links {
@@ -113,24 +118,12 @@
   margin: 0;
 }
 
-.restaurant-nav a {
-  font-size: clamp(1.6rem, 1.8vw, 2rem);
-  font-weight: var(--font-weight-500);
-  text-decoration: none;
-  transition: color 0.2s ease-in-out, transform 0.2s ease;
-}
-
-.restaurant-nav a:hover {
-  color: var(--Red);
-}
-
 @media (max-width: 33.125rem) {
   .restaurant-nav ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
     gap: 1.6rem;
-    text-align: center;
   }
 }
 
@@ -212,14 +205,15 @@
 .navbar-header__cart-button {
   background: var(--Red);
   color: var(--White);
-  border-radius: 1.6rem;
-  padding: 1rem 4rem;
+  border-radius: 2.6rem;
+  padding: 1.2rem 4rem;
   font-size: 1.6rem;
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out, transform 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .navbar-header__cart-button:hover {
@@ -284,8 +278,8 @@
 .navbar-header__links a {
   flex-direction: row;
   gap: 0.5rem;
-  font-size: 1.8rem;
-  font-weight: var(--font-weight-600);
+  font-size: 1.6rem;
+
   padding: 0.5rem 0;
   position: relative;
   text-transform: uppercase;
@@ -309,6 +303,17 @@
 
 .navbar-header__links a:hover::after {
   width: 100%;
+}
+
+.restaurant-nav a {
+  font-size: clamp(1.6rem, 1.8vw, 2rem);
+  font-weight: var(--font-weight-700);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out, transform 0.2s ease;
+}
+
+.restaurant-nav a:hover {
+  color: var(--Red);
 }
 
 /* === Icons === */
