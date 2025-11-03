@@ -5,7 +5,7 @@
   --Cream: #f9eee2;
   --Slate-100: #f4f4f4;
   --Slate-200: #d1d1d1;
-  --Slate-300: #b7b7b7;
+  --Slate-300: #bdbdbd;
   --Slate-500: #2e3136;
   --Red: #dc5820;
   --Orange: #dca420;
@@ -42,7 +42,7 @@
   --max-content-width: 192rem;
   --cart-offset-from-content: 1.6rem;
   --min-viewport-margin: 1.6rem;
-  --header-height: 10rem;
+  --header-height: 14rem;
 }
 
 /* === Base  === */
