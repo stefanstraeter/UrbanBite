@@ -18,5 +18,5 @@ header {
 .dishes-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
 }
