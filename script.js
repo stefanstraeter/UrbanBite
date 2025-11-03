@@ -75,6 +75,8 @@ function updateCartCount() {
 
   cartCount.textContent = totalItems;
   cartCount.style.display = totalItems > 0 ? "flex" : "none";
+
+  void cartCount.offsetWidth;
 }
 
 
