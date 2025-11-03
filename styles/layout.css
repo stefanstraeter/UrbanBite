@@ -22,7 +22,7 @@ header {
 
 @media (max-width: 78.125rem) {
   .restaurant-wrapper {
-    margin-left: var(--space-md);
-    margin-right: var(--space-md);
+    margin-left: var(--space-xs);
+    margin-right: var(--space-xs);
   }
 }
