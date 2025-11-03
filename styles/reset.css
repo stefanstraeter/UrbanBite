@@ -19,6 +19,11 @@ dd {
   margin: 0;
 }
 
+/* Remove iOS Safari default tap highlight */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Remove list styles and margin for normal lists and lists with role attribute */
 ul,
 ol,
