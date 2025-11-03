@@ -81,6 +81,57 @@ function updateCartCount() {
 }
 
 
+
+function registerCartItemButtons() {
+  // 1. Container der Cart Items
+  const cartContainer = document.querySelector(".cart-panel__info");
+
+  // 2. Klick-Event auf den Container (Event Delegation)
+  cartContainer.addEventListener("click", (e) => {
+
+    // 3. Prüfen, ob wir auf ein Cart Item geklickt haben
+    const itemEl = e.target.closest(".cart__item");
+    if (!itemEl) return; // Klick außerhalb eines Items → nichts tun
+
+    // 4. ID des Items auslesen
+    const id = itemEl.dataset.id;
+
+    // 5. Das Item im Cart Array finden (string vs number beachten)
+    const item = cart.find(i => i.id.toString() === id);
+    if (!item) return; // Absicherung, falls Item nicht gefunden wird
+
+    // 6. Prüfen, welcher Button geklickt wurde
+    if (e.target.closest(".cart__item-plus")) {
+      // Plus → Menge erhöhen
+      item.quantity++;
+
+    } else if (e.target.closest(".cart__item-minus")) {
+      // Minus → Menge verringern
+      item.quantity--;
+
+      // Wenn Menge 0 oder kleiner → Item komplett entfernen
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id.toString() !== id);
+      }
+
+    } else if (e.target.closest(".cart__item-remove")) {
+      // Remove Button → Item löschen
+      cart = cart.filter(i => i.id.toString() !== id);
+    }
+
+    // 7. Cart neu rendern, Counter aktualisieren und speichern
+    renderCart();
+    updateCartCount();
+    saveToLocalStorage();
+  });
+}
+
+
+
+
+
+
+
 cartToggleButton.addEventListener("click", () => {
   cartContainer.classList.toggle("active");
 });
@@ -108,7 +159,7 @@ function saveToLocalStorage() {
 }
 
 function getFromLocalStorage() {
-  let stored = JSON.parse(localStorage.getItem("urbanEatsData"));
+  const stored = JSON.parse(localStorage.getItem("urbanEatsData"));
 
   if (stored !== null) {
     cart = stored;
@@ -122,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderAllDishes();
   registerAddToCartButtons();
   renderCart();
+  registerCartItemButtons()
   updateCartCount();
 })
 
