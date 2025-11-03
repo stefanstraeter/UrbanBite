@@ -43,14 +43,14 @@ function addDishToCart(itemId) {
 
 
 function registerAddToCartButtons() {
-  const buttons = document.querySelectorAll('.dishes-content__card-button');
+  const dishesContainer = document.getElementById('dishesContent');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const itemId = button.getAttribute('data-item-id');
+  dishesContainer.addEventListener('click', (clickEvent) => {
+    const button = clickEvent.target.closest('.dishes-content__card-button');
+    if (!button) return;
 
-      addDishToCart(itemId);
-    });
+    const itemId = button.getAttribute('data-item-id');
+    addDishToCart(itemId);
   });
 }
 
@@ -69,6 +69,7 @@ function renderCart() {
   cartContainer.innerHTML = cartSummaryTemplate(itemsHtml, total);
 }
 
+
 function updateCartCount() {
   const cartCount = document.querySelector(".cart-count");
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -78,7 +79,6 @@ function updateCartCount() {
 
   void cartCount.offsetWidth;
 }
-
 
 
 cartToggleButton.addEventListener("click", () => {
@@ -104,11 +104,11 @@ burgerButtonToggle.addEventListener('click', () => {
 
 
 function saveToLocalStorage() {
-  localStorage.setItem("myData", JSON.stringify(cart));
+  localStorage.setItem("urbanEatsData", JSON.stringify(cart));
 }
 
 function getFromLocalStorage() {
-  let stored = JSON.parse(localStorage.getItem("myData"));
+  let stored = JSON.parse(localStorage.getItem("urbanEatsData"));
 
   if (stored !== null) {
     cart = stored;
