@@ -4,7 +4,7 @@
 }
 
 .navbar-header__logo img {
-  max-width: 140%;
+  max-width: 120%;
   height: auto;
 }
 
@@ -34,7 +34,15 @@
   cursor: pointer;
 }
 
+.navbar-header__links i {
+  color: var(--Slate-500);
+}
+
 @media (max-width: 920px) {
+  .navbar-header__logo img {
+    max-width: 100%;
+  }
+
   .navbar-header__toggle {
     display: block;
   }
@@ -230,11 +238,17 @@
   background-color: var(--White);
   border-style: solid;
   border-width: 0.1rem;
+  color: var(--Slate-500);
+  border-color: var(--Slate-500);
 }
 
 .dishes-content__card-button:hover {
   background-color: var(--Red);
   transition: background-color 0.4s ease-in-out, transform 0.4s ease;
+}
+
+.dishes-content__card-button i {
+  color: var(--Slate-500);
 }
 
 @media (max-width: 920px) {
