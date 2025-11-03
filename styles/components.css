@@ -4,8 +4,9 @@
 }
 
 .navbar-header__logo img {
-  max-width: 120%;
+  max-width: 140%;
   height: auto;
+  transition: max-width 0.45s ease;
 }
 
 .navbar-header {
