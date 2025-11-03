@@ -12,11 +12,17 @@ header {
   max-width: 120rem;
   margin: 0 auto;
   margin-top: var(--space-2xl);
-  padding: 0 var(--space-md);
 }
 
 .dishes-content {
   display: flex;
   flex-direction: column;
   gap: 5rem;
+}
+
+@media (max-width: 78.125rem) {
+  .restaurant-wrapper {
+    margin-left: var(--space-md);
+    margin-right: var(--space-md);
+  }
 }
