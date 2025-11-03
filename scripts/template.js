@@ -41,15 +41,26 @@ function emptyCartTemplate() {
 
 function cartItemTemplate(item) {
   return `
-      <div class="cart__item">
-        <div>
-          <span class="cart__item-name">${item.name}</span><br>
-          <span>${item.price.toFixed(2).replace(".", ",")} € x ${item.quantity}</span>
-        </div>
-        <div>
-          ${(item.price * item.quantity).toFixed(2).replace(".", ",")} €
-        </div>
+      <div class="cart__item" data-id="${item.id}">
+      <div class="cart__item-name">
+        <span>${item.name}</span>
+        <button class="cart__item-remove" aria-label="Remove item">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
+      <div class="cart__item-controls">
+        <div>
+          <button class="cart__item-minus" aria-label="Reduce quantity">
+            <i class="fa-regular fa-square-minus"></i>
+          </button>
+          <span class="cart__item-quantity">${item.quantity}</span>
+          <button class="cart__item-plus" aria-label="Increase quantity">
+           <i class="fa-regular fa-square-plus"></i>
+          </button>
+        </div>
+        <div class="cart__item-total">${(item.price * item.quantity).toFixed(2).replace(".", ",")} €</div>
+      </div>
+    </div> 
     `;
 }
 
@@ -58,8 +69,20 @@ function cartSummaryTemplate(itemsHtml, total) {
   return `
       <div>${itemsHtml}</div>
       <hr>
-      <div class="cart__summary">
-        <span>Total:</span> ${total.toFixed(2).replace(".", ",")} €
-      </div>
+       <div class="cart__summary">
+          <div class="cart__summary-items">
+            <span>Subtotal:</span>
+            <span>${total.toFixed(2).replace(".", ",")} €</span>
+          </div>
+          <div class="cart__summary-items">
+            <span>Delivery:</span>
+            <span>4,90 €</span>
+          </div>
+          <div class="cart__summary-items">
+            <span>Total:</span>
+            <span>${total.toFixed(2).replace(".", ",")} €</span>
+          </div>
+       </div>
+      
     `;
 }
