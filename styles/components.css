@@ -52,7 +52,6 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: var(--Cream);
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
@@ -145,15 +144,10 @@
 .dishes-content__card {
   display: flex;
   position: relative;
-  background-color: var(--Cream-200);
+  background-color: var(--White);
   margin-bottom: 2rem;
   border-radius: 1.4rem;
   box-shadow: 3px 3px 50px 0px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.dishes-content__card:hover {
-  transform: translateY(-0.4rem);
 }
 
 .dishes-content__category {
@@ -244,7 +238,7 @@
 
 .dishes-content__card-button:hover {
   background-color: var(--Red);
-  transition: background-color 0.4s ease-in-out, transform 0.4s ease;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease;
 }
 
 .dishes-content__card-button i {
