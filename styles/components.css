@@ -24,6 +24,7 @@
   margin-right: 5rem;
   gap: 3rem;
   list-style: none;
+  background-color: var(--Cream);
 }
 
 /* === Burger Menu=== */
@@ -39,7 +40,7 @@
   color: var(--Slate-500);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 57.5rem) {
   .navbar-header__logo img {
     max-width: 100%;
   }
@@ -197,7 +198,7 @@
   color: var(--Red);
 }
 
-@media (max-width: 620px) {
+@media (max-width: 38.75rem) {
   .dishes-content__card {
     flex-direction: column;
   }
@@ -250,7 +251,7 @@
   color: var(--Slate-500);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 57.5rem) {
   .navbar-header__cart-button {
     position: fixed;
     bottom: 0;
@@ -277,7 +278,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 38.75rem) {
   .dishes-content__card-button {
     position: relative;
     left: auto;
