@@ -4,7 +4,7 @@ let dishes = [
         items: [
             {
                 id: "bento-teriyaki",
-                name: "Tokyo Teriyaki Chicken Bento",
+                name: "Tokyo Chicken Bento",
                 price: 12.50,
                 description: "Grilled chicken glazed with homemade teriyaki sauce, jasmine rice, edamame & pickled veggies",
                 src: "assets/img/tokyo_teriyaki_chicken_bento.jpg"
