@@ -42,6 +42,7 @@
   --max-content-width: 192rem;
   --cart-offset-from-content: 1.6rem;
   --min-viewport-margin: 1.6rem;
+  --header-height: 10rem;
 }
 
 /* === Base  === */
