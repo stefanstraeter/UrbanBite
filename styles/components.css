@@ -126,6 +126,10 @@
   margin: 0;
 }
 
+[id] {
+  scroll-margin-top: var(--header-height);
+}
+
 @media (max-width: 33.125rem) {
   .restaurant-nav ul {
     display: grid;
