@@ -69,6 +69,6 @@ Urban Eats is a modern, interactive online food ordering application built with 
 
 ## Author
 
-- GitHub: [@YOUR-USERNAME](https://github.com/stefanstraeter/)
+- GitHub: [@stefanstraeter](https://github.com/stefanstraeter/)
 
 # urban-eats
