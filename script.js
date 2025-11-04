@@ -7,7 +7,6 @@ const navLinks = document.querySelector('.navbar-header__links');
 const orderToggle = document.getElementById("order-toggle");
 
 
-
 function renderAllDishes() {
   const contentRef = document.getElementById('dishesContent');
 
@@ -214,8 +213,6 @@ document.addEventListener("click", (clickEvent) => {
     }, 3000);
   }
 });
-
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
