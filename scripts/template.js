@@ -1,33 +1,37 @@
 
-function createDishesHtml(categoryObj) {
-  const id = categoryObj.category
-
+function createDishesHtml(categoryDishes) {
+  const id = categoryDishes.category
     .toLowerCase()
     .replace(/&/g, "and")
     .replace(/\s+/g, '')
     .replace(/[^\w]/g, '');
 
-  const itemsHTML = categoryObj.items.map(item => `
-    <div class="dishes-content__card">
+  let itemsHTML = '';
+  categoryDishes.items.forEach(item => {
+    itemsHTML += `
+      <div class="dishes-content__card">
         <img class="dishes-content__card-img" src="${item.src}" />
         <button class="dishes-content__card-button" data-item-id="${item.id}">
-           <i class="fa-solid fa-plus"></i>
-            <span class="ml-xs">Add to Cart</span>
+          <i class="fa-solid fa-plus"></i>
+          <span class="ml-xs">Add to Cart</span>
         </button>
         <div class="dishes-content__card-info p-md">
-            <div class="dishes-content__card-name">${item.name}</div>
-            <div class="dishes-content__card-description">${item.description}</div>
-            <div class="dishes-content__card-price">${item.price.toFixed(2).toString().replace(".", ",")} €</div>
+          <div class="dishes-content__card-name">${item.name}</div>
+          <div class="dishes-content__card-description">${item.description}</div>
+          <div class="dishes-content__card-price">
+            ${item.price.toFixed(2).toString().replace(".", ",")} €
+          </div>
         </div>
-     </div> 
-    `).join('');
+      </div>
+    `;
+  });
 
   return `
     <section class="dishes-content__category mt-2xl" id="${id}">
-        <h2 class="dishes-content__category-title">${categoryObj.category}</h2>
-        ${itemsHTML}
+      <h2 class="dishes-content__category-title">${categoryDishes.category}</h2>
+      ${itemsHTML}
     </section>
-    `;
+  `;
 }
 
 
@@ -41,7 +45,7 @@ function emptyCartTemplate() {
 
 function cartItemTemplate(item) {
   return `
-      <div class="cart__item" data-id="${item.id}">
+    <div class="cart__item" data-id="${item.id}">
       <div class="cart__item-name">
         <span>${item.name}</span>
         <button class="cart__item-remove" aria-label="Remove item">
@@ -55,34 +59,45 @@ function cartItemTemplate(item) {
           </button>
           <span class="cart__item-quantity">${item.quantity}</span>
           <button class="cart__item-plus" aria-label="Increase quantity">
-           <i class="fa-regular fa-square-plus"></i>
+            <i class="fa-regular fa-square-plus"></i>
           </button>
         </div>
         <div class="cart__item-total">${(item.price * item.quantity).toFixed(2).replace(".", ",")} €</div>
       </div>
-    </div> 
+    </div>
     `;
 }
 
 
-function cartSummaryTemplate(itemsHtml, total) {
+function cartSummaryTemplate(subTotal, isDelivery) {
+  const deliveryFee = isDelivery ? 4.9 : 0;
+  const totalWithDelivery = subTotal + deliveryFee;
+
   return `
-      <div>${itemsHtml}</div>
-      <hr>
-       <div class="cart__summary">
-          <div class="cart__summary-items">
-            <span>Subtotal:</span>
-            <span>${total.toFixed(2).replace(".", ",")} €</span>
-          </div>
-          <div class="cart__summary-items">
-            <span>Delivery:</span>
-            <span>4,90 €</span>
-          </div>
-          <div class="cart__summary-items">
-            <span>Total:</span>
-            <span>${total.toFixed(2).replace(".", ",")} €</span>
-          </div>
-       </div>
-      
+    <div class="cart__summary">
+      <div class="cart__summary-items">
+        <span>Subtotal:</span>
+        <span>${subTotal.toFixed(2).replace(".", ",")} €</span>
+      </div>
+      <div class="cart__summary-items">
+        <span>Delivery:</span>
+        <span>${deliveryFee.toFixed(2).replace(".", ",")} €</span>
+      </div>
+      <div class="cart__summary-items">
+        <span>Total:</span>
+        <span>${totalWithDelivery.toFixed(2).replace(".", ",")} €</span>
+      </div>
+
+      <button class="cart__summary-order-btn">Order now</button>
+    </div>
+  `;
+}
+
+function orderButtonOverlay() {
+  return `
+    <div class="cart__order-overlay__content">
+      <img src="assets/gif/wearecooking.gif" alt="Thank you for your order" />
+      <p>Yum! We're cooking up your order…</p>
+    </div>
     `;
 }
