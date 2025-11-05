@@ -32,11 +32,11 @@
   display: none;
   background: none;
   border: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
+  transition: transform 0.4s ease;
 }
-
-.navbar-header__links i {
+.navbar-header__toggle i {
   color: var(--Slate-500);
 }
 
