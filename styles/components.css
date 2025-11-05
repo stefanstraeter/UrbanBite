@@ -247,6 +247,11 @@
   transition: background-color 0.3s ease-in-out, transform 0.3s ease;
 }
 
+.dishes-content__card-button--clicked {
+  background-color: var(--Red) !important;
+  transition: none;
+}
+
 .dishes-content__card-button i {
   color: var(--Slate-500);
 }
@@ -285,13 +290,6 @@
     right: auto;
     top: -1.8rem;
     margin: 0 auto;
-  }
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .dishes-content__card-button:active {
-    background-color: var(--Red);
-    transition: background-color 0.12s ease-out;
   }
 }
 

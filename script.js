@@ -123,6 +123,12 @@ function registerAddToCartButtons() {
     const addButton = clickEvent.target.closest('.dishes-content__card-button');
     if (!addButton) return;
 
+    addButton.classList.add('dishes-content__card-button--clicked');
+
+    setTimeout(() => {
+      addButton.classList.remove('dishes-content__card-button--clicked');
+    }, 150);
+
     const itemId = addButton.getAttribute('data-item-id');
 
     addDishToCart(itemId);
