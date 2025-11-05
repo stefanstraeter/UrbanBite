@@ -80,7 +80,6 @@
 }
 
 /* --- Cart Items--- */
-
 .cart-panel__info {
   flex: 1;
   display: flex;
@@ -299,6 +298,7 @@
 
 .cart__order-overlay__content img {
   border-radius: 1.6rem;
+  width: 65%;
 }
 
 .cart__order-overlay__content p {
