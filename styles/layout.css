@@ -21,6 +21,10 @@ header {
 }
 
 @media (max-width: 78.125rem) {
+  .header {
+    box-shadow: none;
+  }
+
   .restaurant-wrapper {
     margin-left: var(--space-xs);
     margin-right: var(--space-xs);
