@@ -125,12 +125,13 @@ function registerAddToCartButtons() {
 
     addButton.classList.add('dishes-content__card-button--clicked');
 
+    void addButton.offsetWidth;
+
     setTimeout(() => {
       addButton.classList.remove('dishes-content__card-button--clicked');
     }, 150);
 
     const itemId = addButton.getAttribute('data-item-id');
-
     addDishToCart(itemId);
   });
 }
