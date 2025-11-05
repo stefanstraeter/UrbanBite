@@ -11,7 +11,7 @@ function createDishesHtml(categoryDishes) {
     itemsHTML += `
       <div class="dishes-content__card">
         <img class="dishes-content__card-img" src="${item.src}" />
-        <button class="dishes-content__card-button" data-item-id="${item.id} onclick=""">
+        <button class="dishes-content__card-button" data-item-id="${item.id}" onclick="">
           <i class="fa-solid fa-plus"></i>
           <span class="ml-xs">Add to Cart</span>
         </button>
