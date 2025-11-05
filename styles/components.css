@@ -127,10 +127,6 @@
   margin: 0;
 }
 
-[id] {
-  scroll-margin-top: var(--space-3xl);
-}
-
 @media (max-width: 33.125rem) {
   .restaurant-nav ul {
     display: grid;
@@ -240,6 +236,7 @@
   border-width: 0.1rem;
   color: var(--Slate-500);
   border-color: var(--Slate-500);
+  transition: background-color 0.1s ease-out, transform 0.3s ease;
 }
 
 .dishes-content__card-button:hover {
@@ -249,7 +246,6 @@
 
 .dishes-content__card-button--clicked {
   background-color: var(--Red) !important;
-  transition: none;
 }
 
 .dishes-content__card-button i {
@@ -298,7 +294,6 @@
   flex-direction: row;
   gap: 0.5rem;
   font-size: 1.6rem;
-
   padding: 0.5rem 0;
   position: relative;
   text-transform: uppercase;
@@ -333,6 +328,10 @@
 
 .restaurant-nav a:hover {
   color: var(--Red);
+}
+
+[id] {
+  scroll-margin-top: var(--space-4xl);
 }
 
 /* === Icons === */
