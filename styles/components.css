@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem;
+  padding: var(--space-xs) var(--space-md);
 }
 
 .navbar-header__links {
@@ -128,7 +128,7 @@
 }
 
 [id] {
-  scroll-margin-top: var(--header-height);
+  scroll-margin-top: var(--space-3xl);
 }
 
 @media (max-width: 33.125rem) {
@@ -285,6 +285,13 @@
     right: auto;
     top: -1.8rem;
     margin: 0 auto;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .dishes-content__card-button:active {
+    background-color: var(--Red);
+    transition: background-color 0.12s ease-out;
   }
 }
 
