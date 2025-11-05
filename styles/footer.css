@@ -1,0 +1,37 @@
+/* === Footer  === */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 42rem;
+}
+
+.footer__logo img {
+  width: 20rem;
+}
+
+.footer__infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  margin: var(--space-2xl) var(--space-xs);
+}
+
+.footer__infos span {
+  font-size: 1.6rem;
+}
+
+.footer__infos-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 38.75rem) {
+  .footer__infos {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
