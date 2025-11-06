@@ -91,7 +91,7 @@
   flex: 1;
   overflow-y: auto;
   min-height: 0;
-  padding-bottom: var(--space-md);
+  padding-right: 0.5rem;
 }
 
 .cart__item {
