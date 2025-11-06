@@ -5,54 +5,62 @@ const cartContainer = document.getElementById("floatingCart");
 const burgerButtonToggle = document.querySelector('.navbar-header__toggle');
 const navLinks = document.querySelector('.navbar-header__links');
 const orderToggle = document.getElementById("order-toggle");
+const cartPanel = document.querySelector(".cart-panel__info");
+const contentRef = document.getElementById('dishesContent');
+const cartCount = document.querySelector(".cart-count");
+const dishesContainer = document.getElementById('dishesContent');
 
 
 function renderAllDishes() {
-  const contentRef = document.getElementById('dishesContent');
-
   let dishesHtml = '';
-  dishes.forEach(categoryDishes => {
-    dishesHtml += createDishesHtml(categoryDishes);
+
+  dishes.forEach(category => {
+    const id = generateCategoryId(category.category)
+    dishesHtml += createDishesHtml(category, id);
   });
 
   contentRef.innerHTML = dishesHtml;
 }
 
 
-function renderCart() {
-  const cartPanel = document.querySelector(".cart-panel__info");
+function generateCategoryId(categoryName) {
+  return categoryName
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/\s+/g, '')
+    .replace(/[^\w]/g, '');
+}
 
+
+function renderCart() {
   if (cart.length === 0) {
     cartPanel.innerHTML = emptyCartTemplate();
     return;
   }
 
   let itemsHTML = '';
-  cart.forEach(cartItem => {
-    itemsHTML += cartItemTemplate(cartItem);
-  });
+  cart.forEach(cartItem => itemsHTML += cartItemTemplate(cartItem));
 
-  let subtotal = 0;
-  cart.forEach(cartItem => {
-    subtotal += cartItem.price * cartItem.quantity;
-  });
+  let subTotal = 0;
+  cart.forEach(subTotalitem => subTotal += subTotalitem.price * subTotalitem.quantity);
 
-  const orderToggle = document.getElementById("order-toggle");
+  subTotal = subTotal.toFixed(2).replace(".", ",");
+
   const isDelivery = orderToggle.checked;
+
+  const delivery = (isDelivery ? 4.9 : 0).toFixed(2).replace(".", ",");
+  const total = (parseFloat(subTotal.replace(",", ".")) + parseFloat(delivery.replace(",", "."))).toFixed(2).replace(".", ",");
 
   cartPanel.innerHTML = `
     <div class="cart__items">
       ${itemsHTML}
     </div>
-    ${cartSummaryTemplate(subtotal, isDelivery)}
+    ${cartSummaryTemplate(subTotal, delivery, total)}
   `;
 }
 
 
-
 function updateCartCountBadge() {
-  const cartCount = document.querySelector(".cart-count");
-
   let totalItems = 0;
   cart.forEach(cartItem => {
     totalItems += cartItem.quantity;
@@ -65,8 +73,6 @@ function updateCartCountBadge() {
   } else {
     cartCount.style.display = "none";
   }
-
-  void cartCount.offsetWidth;
 }
 
 
@@ -117,15 +123,11 @@ function updateCartItem(cartItem, itemId, action) {
 
 
 function registerAddToCartButtons() {
-  const dishesContainer = document.getElementById('dishesContent');
-
   dishesContainer.addEventListener('click', (clickEvent) => {
     const addButton = clickEvent.target.closest('.dishes-content__card-button');
     if (!addButton) return;
 
     addButton.classList.add('dishes-content__card-button--clicked');
-
-    void addButton.offsetWidth;
 
     setTimeout(() => {
       addButton.classList.remove('dishes-content__card-button--clicked');
@@ -138,8 +140,6 @@ function registerAddToCartButtons() {
 
 
 function registerCartItemButtons() {
-  const cartPanel = document.querySelector(".cart-panel__info");
-
   cartPanel.addEventListener("click", (clickEvent) => {
     const item = clickEvent.target.closest(".cart__item");
     if (!item) return;
@@ -230,5 +230,4 @@ document.addEventListener("DOMContentLoaded", () => {
   registerCartItemButtons()
   updateCartCountBadge();
 })
-
 
