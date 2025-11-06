@@ -1,11 +1,5 @@
 
-function createDishesHtml(categoryDishes) {
-  const id = categoryDishes.category
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/\s+/g, '')
-    .replace(/[^\w]/g, '');
-
+function createDishesHtml(categoryDishes, id) {
   let itemsHTML = '';
   categoryDishes.items.forEach(item => {
     itemsHTML += `
@@ -43,11 +37,11 @@ function emptyCartTemplate() {
 }
 
 
-function cartItemTemplate(item) {
+function cartItemTemplate(cartItem) {
   return `
-    <div class="cart__item" data-id="${item.id}">
+    <div class="cart__item" data-id="${cartItem.id}">
       <div class="cart__item-name">
-        <span>${item.name}</span>
+        <span>${cartItem.name}</span>
         <button class="cart__item-remove" aria-label="Remove item">
           <i class="fa-solid fa-xmark"></i>
         </button>
@@ -57,35 +51,32 @@ function cartItemTemplate(item) {
           <button class="cart__item-minus" aria-label="Reduce quantity">
             <i class="fa-regular fa-square-minus"></i>
           </button>
-          <span class="cart__item-quantity">${item.quantity}</span>
+          <span class="cart__item-quantity">${cartItem.quantity}</span>
           <button class="cart__item-plus" aria-label="Increase quantity">
             <i class="fa-regular fa-square-plus"></i>
           </button>
         </div>
-        <div class="cart__item-total">${(item.price * item.quantity).toFixed(2).replace(".", ",")} €</div>
+        <div class="cart__item-total">${(cartItem.price * cartItem.quantity).toFixed(2).replace(".", ",")} €</div>
       </div>
     </div>
     `;
 }
 
 
-function cartSummaryTemplate(subTotal, isDelivery) {
-  const deliveryFee = isDelivery ? 4.9 : 0;
-  const totalWithDelivery = subTotal + deliveryFee;
-
+function cartSummaryTemplate(subTotal, delivery, total) {
   return `
     <div class="cart__summary">
       <div class="cart__summary-items">
         <span>Subtotal:</span>
-        <span>${subTotal.toFixed(2).replace(".", ",")} €</span>
+        <span>${subTotal} €</span>
       </div>
       <div class="cart__summary-items">
         <span>Delivery:</span>
-        <span>${deliveryFee.toFixed(2).replace(".", ",")} €</span>
+        <span>${delivery} €</span>
       </div>
       <div class="cart__summary-items">
         <span>Total:</span>
-        <span>${totalWithDelivery.toFixed(2).replace(".", ",")} €</span>
+        <span>${total} €</span>
       </div>
 
       <button class="cart__summary-order-btn">Order now</button>
